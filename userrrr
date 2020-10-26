@@ -1,0 +1,8 @@
+{
+    "name": "User test",
+    "email": "test12345@domain.com",
+    "password": "123123",
+    "password_confirmation": "123123",
+    "active": 1,
+    "role": "36031f70-68f0-4f02-949d-f88d0b025322"
+}

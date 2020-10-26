@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 20%;
+  padding: 15px;
+
+
+}
+
+
+
+.kotak{
+/* Holding Shape */
+width: 100%;
+left: 0%;
+right: 0%;
+background: #FFFFFF;
+/* Lighter Grey */
+border: 1px solid #E5E5E5;
+box-sizing: border-box;
+border-radius: 3px;
+  
+}
+
+.kotak-cust{
+/* Holding Shape */
+left: 0%;
+right: 0%;
+background: #FFFFFF;
+/* Lighter Grey */
+border: 1px solid #E5E5E5;
+box-sizing: border-box;
+border-radius: 3px;
+  
+}
+
+
+.flex-col {
+  height: 100px;
+  width: 100px;
+  background: blue;
+  //border: 2px solid black;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 2px solid #E5E5E5;
+  background-color: white;
+  position: relative;
+  top: 20px;
+  margin: auto;
+  width :85%;
+}
+
+.flex-container-item {
+  /*background-color: #f1f1f1;*/
+  width: 15%;
+  margin-left: 50px;
+  text-align: left;
+  font-size: 12px;
+  align-items: center;
+}
+
+.flex-container-itemx{
+  //background-color: #f1f1f1;
+  width: 40px;
+  margin: auto;
+  text-align: left;
+  font-size: 12px;
+  align-items: center;
+}
+
+section {
+  display: table;
+  width: 100%;
+}
+
+section > * {
+  display: table-row;
+}
+
+section .col {
+  display: table-cell;
+  width: 200px;
+  margin: auto;
+  text-align: left;
+  font-size: 12px;
+}
+
+section .colz {
+  border: 2px solid #E5E5E5;
+  display: table-cell;
+
+  margin-left: 34px;
+  text-align: left;
+  font-size: 12px;
+
+  padding: 5px 5px 5px 5px;
+  outline-style: solid;
+  outline-color: white;
+  outline-width: 10px;
+  border: 1px solid silver;
+
+}
+
+section .col-x {
+  display: table-cell;
+    width: 70px;
+  margin: auto;
+  text-align: left;
+  font-size: 12px;
+}
+
+section .col-xz {
+  display: table-cell;
+    width: 30px;
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+section .col-xx {
+  display: table-cell;
+    width: 50px;
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+
+.col-outer {
+   display: table-cell;
+  padding: 12px;
+  background-color: white;
+}
+
+.leftarrow{
+position: relative;
+height: 5px;
+left: 110px;
+top: -70px;
+font-size: 20px;
+}
+
+
+.titlehead{
+
+position: relative;
+height: 5px;
+top: -30px;
+font-size: 15px;
+text-align: left;
+
+}
+
+.titleheadx{
+
+position: relative;
+height: 5px;
+top: -20px;
+font-size: 15px;
+text-align: left;
+
+}
+
+.row {
+  /*width:90%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  padding:5px;
+  text-align: center;*/
+  position: relative;
+  top: 20px;
+  margin: auto;
+  width: 85%;
+  border: 2px solid #E5E5E5;
+  padding: 10px;
+}
+
+.roww {
+  /*width:90%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  padding:5px;
+  text-align: center;*/
+  position: relative;
+  top: 20px;
+  margin-left: 34px;
+  width: 90%;
+  padding: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+.blank_row {
+  margin :auto;
+  width:100%;
+  height:20px;
+
+}
+.button{
+  //background-color: #4CAF50; /* Green */
+  border: none;
+  //color: white;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+.button-y {
+  background-color: #4CAF50; /* Green */
+  border-radius: 0%;
+  width:80px;
+  height:30px;
+  color: white;
+  text-align: center;
+  //line-height: 0px;
+}
+.button-x {
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  width:20px;
+  height:20px;
+  text-align: center;
+  //line-height: 0px;
+}
+
+.triangle-down {
+      width: 0;
+      height: 0;
+      position: relative;
+
+left: 210px;
+top: -30px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 10px solid blue;
+    }
+hr.solid {
+  border-top: 2px solid #bbb;
+  width:92%;
+}
+
+hr.whr {
+  border: 0; 
+  border-top: 0px  solid #FFFF;
+  width:90%;
+}
+
+
+.foo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
+  -webkit-flex-direction: column;
+
+  height: 200px;
+}
+
+.a, .c{
+  flex: 0 0 50%;
+  -webkit-flex: 0 0 50%;
+  background: white;
+
+}
+
+.b {
+  -webkit-flex: 0 0 100%;
+  flex: 0 0 100%;
+  
+  -webkit-order: 1;
+  order: 1;
+  
+  background: white;}
+
+.c {
+  background: white;}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Header</h1>
+  <p>Resize the browser window to see the responsive effect.</p>
+</div>
+
+<!--div class="topnav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div-->
+
+<div class="row">
+  <div class="column">
+    <div class="kotak">
+      <h2>Column</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="kotak">
+    <h2>Column</h2>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="kotak">
+    <h2>Column</h2>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="kotak">
+    <h2>Column</h2>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="kotak">
+    <h2>Column</h2>
+    
+    <button class="button button5">x</button>
+    </div>
+  </div>
+</div>
+
+<div class="blank_row"></div>
+
+<div class="row">
+  <div class="column">
+      <h2>Column</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. 
+        </p>  
+        
+  </div>
+
+  <div class="column">
+      <h2>Column</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. 
+        </p>  
+  </div>
+
+  <div class="column">
+      <h2>Column</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. 
+        </p>  
+  </div>
+
+  <div class="column">
+      <h2>Column</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. 
+        </p>  
+  </div>
+
+  <div class="column">
+      <h2>Column</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. 
+        </p>  
+  </div>
+  
+  
+</div>
+
+<div class="blank_row"></div>
+ 
+<div class="flex-container">
+    <div class="flex-container-item" >
+     
+          <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+          </p>
+          
+          <div class="leftarrow">&#8594; </div>
+          <div class="triangle-down"></div>
+    </div>
+
+    <div class="flex-container-item" >
+     
+          <p>
+            Tujuan<br>
+            <b>Tanjung Priuk</b><br>
+            Indonesia<br><br>
+            &nbsp;
+          </p>
+           
+    </div>
+    <div class="flex-container-item" >
+        
+          <p>
+            No Pemesanan<br>
+            1234567890<br><br>
+            Tipe | Cargo | Incoterms<br>
+            <b>Import | Laut | FOB</b>
+          </p>
+    </div>
+    <div class="flex-container-item" >
+        
+          <p>
+            ETA<br>
+            31 Oktober 2020<br><br>
+            Tipe Container<br>
+            FCL 20 DRY
+          </p>
+    </div>
+    <div class="flex-container-item" >
+        <p>
+            Status<br>
+            Pilih Forwarder<br><br>
+            <button class="button-y">Quotation</button><br>
+            
+          </p>
+    </div>
+    
+    <div class="flex-container-itemx" >
+     
+        <button class="button-x" > x </button>
+    </div>
+
+    
+  
+</div>
+
+<div class="blank_row"></div>
+
+<div class="flex-container">
+    <div class="flex-container-item" >
+     
+          <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+          </p>
+          <div class="leftarrow">&#8594; </div>
+    </div>
+
+    <div class="flex-container-item" >
+     
+          <p>
+            Tujuan<br>
+            <b>Tanjung Priuk</b><br>
+            Indonesia<br><br>
+            &nbsp;
+          </p>
+           
+    </div>
+    <div class="flex-container-item" >
+        
+          <p>
+            No Pemesanan<br>
+            1234567890<br><br>
+            Tipe | Cargo | Incoterms<br>
+            <b>Import | Laut | FOB</b>
+          </p>
+    </div>
+    <div class="flex-container-item" >
+        
+          <p>
+            ETA<br>
+            31 Oktober 2020<br><br>
+            Tipe Container<br>
+            FCL 20 DRY
+          </p>
+    </div>
+    <div class="flex-container-item" >
+        <p>
+            Status<br>
+            Pilih Forwarder<br><br>
+            <button class="button-y">Quotation</button><br>
+            
+          </p>
+    </div>
+    
+    <div class="flex-container-itemx" >     
+        <button class="button-x">x</button>
+    </div> 
+</div>
+
+<div class="blank_row"></div>
+
+<div class="flex-container">
+    <div class="flex-container-item" >
+     
+          <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+          </p>
+          <div class="leftarrow">&#8594; </div>
+    </div>
+
+    <div class="flex-container-item" >
+     
+          <p>
+            Tujuan<br>
+            <b>Tanjung Priuk</b><br>
+            Indonesia<br><br>
+            &nbsp;
+          </p>
+           
+    </div>
+    <div class="flex-container-item" >
+        
+          <p>
+            No Pemesanan<br>
+            1234567890<br><br>
+            Tipe | Cargo | Incoterms<br>
+            <b>Import | Laut | FOB</b>
+          </p>
+    </div>
+    <div class="flex-container-item" >
+        
+          <p>
+            ETA<br>
+            31 Oktober 2020<br><br>
+            Tipe Container<br>
+            FCL 20 DRY
+          </p>
+    </div>
+    <div class="flex-container-item" >
+        <p>
+            Status<br>
+            Pilih Forwarder<br><br>
+            <button class="button-y">Quotation</button><br>
+            
+          </p>
+    </div>
+    
+    <div class="flex-container-itemx" >     
+        <button class="button-x">x</button>
+    </div> 
+
+
+    </div>
+
+
+
+
+
+<div class="blank_row"></div>
+
+
+
+<div class="flex-container" style="height: 1000px">
+
+
+<section>
+<header>
+<div class="col">
+
+<div class="col-xx"></div>
+
+  <div class="col">
+    <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+          </p>
+          <div class="leftarrow">&#8594; </div>
+  </div>
+  <div class="col">
+    <p>
+            Tujuan<br>
+            <b>Tanjung Priuk</b><br>
+            Indonesia<br><br>
+            &nbsp;
+          </p>
+    
+  </div>
+  <div class="col">
+    <p>
+            No Pemesanan<br>
+            1234567890<br><br>
+            Tipe | Cargo | Incoterms<br>
+            <b>Import | Laut | FOB</b>
+          </p>
+  </div>
+
+   <div class="col">
+    <p>
+            ETA<br>
+            31 Oktober 2020<br><br>
+            Tipe Container<br>
+            FCL 20 DRY
+          </p>
+  </div>
+
+   <div class="col">
+    <p>
+            Status<br>
+            Pilih Forwarder<br><br>
+            <button class="button-y">Quotation</button><br>
+            
+          </p>
+  </div>
+
+  <div class="col-x">
+    <p><button class="button-x">x</button></p>
+  </div>
+  <hr class="solid"></hr>
+
+<div class="col-xx"></div>
+   <div class="col">
+
+    <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+          </p>
+          <div class="leftarrow">&#8594; </div>
+  </div>
+  <div class="col">
+    <p>
+            Tujuan<br>
+            <b>Tanjung Priuk</b><br>
+            Indonesia<br><br>
+            &nbsp;
+          </p>
+    
+  </div>
+  <div class="col">
+    <p>
+            No Pemesanan<br>
+            1234567890<br><br>
+            Tipe | Cargo | Incoterms<br>
+            <b>Import | Laut | FOB</b>
+          </p>
+  </div>
+
+   <div class="col">
+    <p>
+            ETA<br>
+            31 Oktober 2020<br><br>
+            Tipe Container<br>
+            FCL 20 DRY
+          </p>
+  </div>
+
+   <div class="col">
+    <p>
+            Status<br>
+            Pilih Forwarder<br><br>
+            <button class="button-y">Quotation</button><br>
+            
+          </p>
+  </div>
+    <div class="col-x">
+    <p><button class="button-x">x</button></p>
+  </div>
+
+
+ <hr class="whr"></hr>
+
+<div class="col-xz"></div>
+  <div class="col-outer">
+
+   <div class="colz" style="width:400px" >
+    <div class="titlehead">Judul 1</div>
+    <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+          </p>
+        
+  </div>
+</div>
+  <div class="col-outer">
+  <div class="colz" style="width:230px">
+    <div class="titlehead">Judul </div>
+    <p>
+            Tujuan<br>
+            <b>Tanjung Priuk</b><br>
+            Indonesia<br><br>
+            &nbsp;
+          </p>
+    
+  </div>
+</div>
+  <div class="col-outer">
+  
+  <div class="colz" style="width:320px">
+    <div class="titlehead">Judul </div>
+    <p>
+            No Pemesanan<br>
+            1234567890<br><br>
+            Tipe | Cargo | Incoterms<br>
+            <b>Import | Laut | FOB</b>
+          </p>
+  </div>
+</div>
+  <div class="col-xx">
+     <p>
+            &nbsp;
+            
+          </p>
+  </div>
+
+
+<hr class="whr"></hr>
+
+<div class="col-xz"></div>
+  <div class="col-outer">
+    <div class="colz" style="width:640px" >
+      <div class="titlehead">Judul </div>
+        <p>
+            Asal<br>
+            <b>Port Of Singapur</b><br>
+            Singapura<br><br>
+            Detail Pemesanan
+        </p>       
+    </div>
+  </div>
+  <div class="col-outer">
+    <div class="colz" style="width:320px;">
+        <div class="titlehead">Judul </div>
+        <p>
+                No Pemesanan<br>
+                1234567890<br><br>
+                Tipe | Cargo | Incoterms<br>
+                <b>Import | Laut | FOB</b>
+        </p>
+    </div>
+  </div>
+
+
+
+
+
+
+<div class="roww">
+
+
+<div class="foo">
+    <div class="a" style="padding:10px;width:68%">
+            <div class="kotak" style="border:1px solid">
+                  <div class="col" style="border:1px solid;">
+                    <p>1</p>  
+                  </div> 
+                <div class="col" style="border:1px solid;width:90%">
+                    <p>
+                        Asal<br>
+                        <b>Port Of Singapur</b><br>
+                        Singapura<br><br>
+                        Detail Pemesanan
+                    </p>  
+                </div> 
+              </div>
+              <hr class="whr"></hr>
+              <div class="kotak" style="border:1px solid">
+                  <div class="col" style="border:1px solid;">
+                    <p>1</p>  
+                  </div> 
+                <div class="col" style="border:1px solid;width:90%">
+                    <p>
+                        Asal<br>
+                        <b>Port Of Singapur</b><br>
+                        Singapura<br><br>
+                        Detail Pemesanan
+                    </p>  
+                </div> 
+              </div>
+              <hr class="whr"></hr>
+               <div class="kotak" style="border:1px solid">
+                  <div class="col" style="border:1px solid;">
+                    <p>1</p>  
+                  </div> 
+                <div class="col" style="border:1px solid;width:90%">
+                    <p>
+                        Asal<br>
+                        <b>Port Of Singapur</b><br>
+                        Singapura<br><br>
+                        Detail Pemesanan
+                    </p>  
+                </div> 
+              </div>
+ 
+         
+    </div>
+    <div class="b" style="padding:10px;width:35%">
+      
+               <div class="kotak-cust" style="border:1px solid; height:130px;width:100%">
+                <div class="titleheadx">Judul </div>
+                    <p>
+                        Asal<br>
+                        <b>Port Of Singapurx</b><br>
+                        Singapura<br><br>
+                        Detail Pemesanan
+                    </p>  
+                        
+              </div>
+<hr class="whr"></hr>
+<hr class="whr"></hr>
+<hr class="whr"></hr>
+              <div class="kotak-cust" style="border:1px solid; height:50px;width:100%">
+                <div class="titleheadx">Judul </div>
+                    <p>
+                        Asal<br>
+                        <b>Port Of Singapury</b><br>
+                        
+                    </p>  
+                        
+              </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+</header>
+</section>
+
+
+</div>
+</body>
+</html>
