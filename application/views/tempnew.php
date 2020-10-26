@@ -66,7 +66,7 @@
             <div class="inner-container clearfix">
                 <div class="logo-box">
                     <div class="logo">
-                        <a href="http://localhost:8001"><img src="#" class="webLogo" alt="Kota Bukittinggi" title="Kota Bukittinggi" /></a>
+                        <a href="http://localhost"><img src="#" class="webLogo" alt="Kota Bukittinggi" title="Kota Bukittinggi" /></a>
                     </div>
                 </div>
 
@@ -83,12 +83,12 @@
 
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class="nav-item"><a href="http://localhost:8001">Beranda</a></li>
+                                <li class="nav-item"><a href="http://localhost">Beranda</a></li>
                                 <li class="nav-item"><a href="#about-us">Tentang Kami</a></li>
                                 <li class="nav-item"><a href="#facility">Fasilitas</a></li>
                                 <li class="nav-item"><a href="#instansi">Instansi</a></li>
                                 <li class="nav-item"><a href="#contact-us">Kontak Kami</a></li>
-                                <li class="nav-item"><a href="http://localhost:8001/statistik">Statistik</a></li>
+                                <li class="nav-item"><a href="http://localhost/statistik">Statistik</a></li>
 
                                                             </ul>
                         </div>
@@ -96,7 +96,7 @@
 
                     <div class="options-box clearfix">
                         <div class="btn-box">
-                                                    <a href="http://localhost:8001/login" class="theme-btn btn-style-four"><span class="txt">Login</span></a>
+                                                    <a href="http://localhost/login" class="theme-btn btn-style-four"><span class="txt">Login</span></a>
                                                 </div>
                     </div>
                 </div>
