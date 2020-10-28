@@ -21,13 +21,13 @@ class Banner extends CI_Controller {
 
 	public function index()
 	{
-
+	   $api_banner=$this->config->item('api_banner');
 	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
 	   if($this->session->userdata['id']==""){ 
 	    redirect('/Login');
 	   }		
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/banner");
+		$profile = get_http_request($api_banner);
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
@@ -43,9 +43,10 @@ class Banner extends CI_Controller {
 
 	public function formBanner()
 	{
+		$api_banner=$this->config->item('api_banner');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
-				$url="http://localhost:8000/api/banner";
+				$url=$api_banner;
 				$subject = $this->input->post('subject');
 				$link = $this->input->post('link');
 				$logo=$_FILES['image'];
@@ -77,8 +78,9 @@ class Banner extends CI_Controller {
 
 	public function deleteBanner($id)
 	{
+		$api_banner=$this->config->item('api_banner');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request("http://localhost:8000/api/banner/".$id);
+		$profile = del_http_request($api_banner."/".$id);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');

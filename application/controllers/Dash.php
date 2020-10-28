@@ -18,9 +18,21 @@ class Dash extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	public function __construct() {
+		parent::__construct();
+	}
+
 	public function index()
 	{
+		//$this->config->load('globals');
+		
+		$coremenu=$this->config->item('api_core');
 
+		// $arrku=$this->globals->nama_saya();
+
+		// print_r($arrku);die;
+		
 	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
 	   if($this->session->userdata['id']==""){ 
 	    redirect('/Login');

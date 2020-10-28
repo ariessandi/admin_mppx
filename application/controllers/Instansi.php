@@ -25,9 +25,9 @@ class Instansi extends CI_Controller {
 	   // if($this->session->userdata['id']==""){ 
 	   //  redirect('/Login');
 	   // }
-		
+		$api_instansi=$this->config->item('api_instansi');
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/instansi");
+		$profile = get_http_request($api_instansi);
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
@@ -43,9 +43,10 @@ class Instansi extends CI_Controller {
 
 	public function formInstansi()
 	{
+		$api_instansi=$this->config->item('api_instansi');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
-				$url="http://localhost:8000/api/instansi";
+				$url=$api_instansi;
 				$name = $this->input->post('name');
 				$logo=$_FILES['logo'];
 				$shortname = $this->input->post('shortname');		
@@ -73,6 +74,7 @@ class Instansi extends CI_Controller {
 
 	public function editInstansi($id)
 	{
+		$api_instansi=$this->config->item('api_instansi');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
 			$name = $this->input->post('name');
@@ -85,12 +87,12 @@ class Instansi extends CI_Controller {
 			    'name'  =>  $name,
 			    'shortname'  =>  $shortname
 			);
-			$profile = post_http_request("http://localhost:8000/api/instansi/".$id,$data);
+			$profile = post_http_request($api_instansi."/".$id,$data);
 			$profile = json_decode($profile, TRUE);
 			redirect('/CoreRole');
 		}else{
 			$this->load->helper('rest_helper');
-			$profile = get_http_request("http://localhost:8000/api/instansi/".$id);
+			$profile = get_http_request($api_instansi."/".$id);
 			$data['profile'] = json_decode($profile, TRUE);
 			// $this->load->view('mainHead');
 			// $this->load->view('nav');
@@ -106,8 +108,9 @@ class Instansi extends CI_Controller {
 
 	public function deleteInstansi($id)
 	{
+		$api_instansi=$this->config->item('api_instansi');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request("http://localhost:8000/api/instansi/".$id);
+		$profile = del_http_request($api_instansi."/".$id);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');

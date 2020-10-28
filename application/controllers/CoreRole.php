@@ -21,15 +21,9 @@ class CoreRole extends CI_Controller {
 
 	public function index()
 	{
-
-	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
-	   if($this->session->userdata['id']==""){ 
-	    redirect('/Login');
-	   }
-		
+		$corerole=$this->config->item('api_role');
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-role");
-		// ubah string JSON menjadi array
+		$profile = get_http_request($corerole);
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
@@ -44,8 +38,11 @@ class CoreRole extends CI_Controller {
 
 	public function tablepro()
 	{
+		
+		$corerole=$this->config->item('api_role');
+		
      	$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-role");
+		$profile = get_http_request($corerole);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('headermain');
@@ -56,8 +53,9 @@ class CoreRole extends CI_Controller {
 
 	public function tableadmin()
 	{
+		$corerole=$this->config->item('api_role');
      	$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-role");
+		$profile = get_http_request($corerole);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('headermain');
@@ -69,8 +67,9 @@ class CoreRole extends CI_Controller {
 	
 	public function formadmin()
 	{
+		$corerole=$this->config->item('api_role');
      	$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-role");
+		$profile = get_http_request($corerole);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('headermain');
@@ -81,7 +80,7 @@ class CoreRole extends CI_Controller {
 	
 	public function formRole()
 	{
-
+		$corerole=$this->config->item('api_role');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
 			$name = $this->input->post('name');
@@ -94,7 +93,7 @@ class CoreRole extends CI_Controller {
 			    'active'=>  1
 			);
 
-			$profile = post_http_request("http://localhost:8000/api/core-role",$data);
+			$profile = post_http_request($corerole,$data);
 			$profile = json_decode($profile, TRUE);
 			redirect('/CoreRole');
 		}	
@@ -111,9 +110,10 @@ class CoreRole extends CI_Controller {
 
 	public function deleteRole($id)
 	{
+		$corerole=$this->config->item('api_role');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request("http://localhost:8000/api/core-role/".$id);
-		// ubah string JSON menjadi array
+		$profile = del_http_request($corerole."/".$id);
+		// ubah string JSON menjadi array  http://localhost/Codes/CoreRole/deleteRole/0b85fe11-468b-4d45-8a2d-f4ab6cf1654d
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');
 		$this->load->view('nav');
@@ -122,7 +122,7 @@ class CoreRole extends CI_Controller {
 
 	public function editRole($id)
 	{  
-
+		$corerole=$this->config->item('api_role');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
 			$name = $this->input->post('name');
@@ -133,12 +133,12 @@ class CoreRole extends CI_Controller {
 			    'description'  =>  $description,
 			    'active'=>  1
 			);
-			$profile = post_http_request("http://localhost:8000/api/core-role/".$id,$data);
+			$profile = post_http_request($corerole.$id,$data);
 			$profile = json_decode($profile, TRUE);
 			redirect('/CoreRole');
 		}else{
 			$this->load->helper('rest_helper');
-			$profile = get_http_request("http://localhost:8000/api/core-role/".$id);
+			$profile = get_http_request($corerole.$id);
 			$data['profile'] = json_decode($profile, TRUE);
 			// $this->load->view('mainHead');
 			// $this->load->view('nav');

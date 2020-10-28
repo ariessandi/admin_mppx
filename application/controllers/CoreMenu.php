@@ -18,17 +18,18 @@ class Coremenu extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
+ 
 	public function index()
 	{
-
+	   
 	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
 	   if($this->session->userdata['id']==""){ 
 	    redirect('/Login');
 	   }
-		
+	    
+		$coremenu=$this->config->item('api_menu');
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-menu");
+		$profile = get_http_request($coremenu);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
@@ -43,8 +44,9 @@ class Coremenu extends CI_Controller {
 
 	public function deleteMain($id)
 	{
+		$coremenu=$this->config->item('api_menu');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request("http://localhost:8000/api/core-menu/".$id);
+		$profile = del_http_request($coremenu."/".$id);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');
@@ -54,6 +56,7 @@ class Coremenu extends CI_Controller {
 
 	public function formMenu()
 	{
+		$coremenu=$this->config->item('api_menu');
 		$name = $this->input->post('name');
 		$text = $this->input->post('text');
 		$help = $this->input->post('help');
@@ -73,7 +76,7 @@ class Coremenu extends CI_Controller {
 			    'active'=>  1
 			);
 
-			$profile = post_http_request("http://localhost:8000/api/core-menu",$data);
+			$profile = post_http_request($coremenu,$data);
 			$profile = json_decode($profile, TRUE);
 
 			redirect('/CoreMenu');
@@ -90,7 +93,7 @@ class Coremenu extends CI_Controller {
 
 	public function editMain($id)
 	{  
-
+		$coremenu=$this->config->item('api_menu');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
 			$name = $this->input->post('name');
@@ -110,7 +113,7 @@ class Coremenu extends CI_Controller {
 			    'active'=>  1
 			);
 
-			$profile = post_http_request("http://localhost:8000/api/core-menu/".$id,$data);
+			$profile = post_http_request($coremenu."/".$id,$data);
 			$profile = json_decode($profile, TRUE);
 
 			// echo '<pre>';
@@ -120,7 +123,7 @@ class Coremenu extends CI_Controller {
 
 
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-menu/".$id);
+		$profile = get_http_request($coremenu."/".$id);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');

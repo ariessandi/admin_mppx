@@ -21,9 +21,10 @@ class User extends CI_Controller {
 
 	public function index($id)
 	{
-		echo $id;die;
+		$api_user=$this->config->item('api_user');
+		//echo $id;die;
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-user/".$id);
+		$profile = get_http_request($api_user."/".$id);
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');
 		$this->load->view('nav');
@@ -32,8 +33,9 @@ class User extends CI_Controller {
 
 	public function listUser($id)
 	{
+		$api_user=$this->config->item('api_user');
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-user/".$id);
+		$profile = get_http_request($api_user."/".$id);
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
@@ -47,9 +49,10 @@ class User extends CI_Controller {
 
 	public function formUsers()
 	{
+		$api_user=$this->config->item('api_user');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
-				$url="http://localhost:8000/api/core-user";
+				$url=$api_user;
 				$title = $this->input->post('title');
 				$logo=$_FILES['image'];
 				$publish = $this->input->post('publish');		

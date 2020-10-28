@@ -27,8 +27,9 @@ class Gallery extends CI_Controller {
 	    redirect('/Login');
 	   }
 		
+		$api_gallery=$this->config->item('api_gallery');
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/gallery");
+		$profile = get_http_request($api_gallery);
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
@@ -44,9 +45,10 @@ class Gallery extends CI_Controller {
 
 	public function formGallery()
 	{
+		$api_gallery=$this->config->item('api_gallery');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
-				$url="http://localhost:8000/api/gallery";
+				$url=$api_gallery;
 				$title = $this->input->post('title');
 				$logo=$_FILES['image'];
 				$publish = $this->input->post('publish');		
@@ -77,6 +79,7 @@ class Gallery extends CI_Controller {
 
 	public function editGallery($id)
 	{
+		$api_gallery=$this->config->item('api_gallery');
 		$btnsubmit = $this->input->post('btnsubmit');
 		if($btnsubmit=="SAVE"){
 			$title = $this->input->post('title');
@@ -90,12 +93,12 @@ class Gallery extends CI_Controller {
 			    'publish'  =>  $publish
 
 			);
-			$profile = upload_http_request("http://localhost:8000/api/gallery/".$id,$data,$logo);
+			$profile = upload_http_request($api_gallery."/".$id,$data,$logo);
 			$profile = json_decode($profile, TRUE);
 			redirect('/Gallery');
 		}else{
 			$this->load->helper('rest_helper');
-			$profile = get_http_request("http://localhost:8000/api/gallery/".$id);
+			$profile = get_http_request($api_gallery."/".$id);
 			$data['profile'] = json_decode($profile, TRUE);
 			// $this->load->view('mainHead');
 			// $this->load->view('nav');
@@ -110,8 +113,9 @@ class Gallery extends CI_Controller {
 
     public function deleteGallery($id)
 	{
+		$api_gallery=$this->config->item('api_gallery');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request("http://localhost:8000/api/gallery/".$id);
+		$profile = del_http_request($api_gallery."/".$id);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');
