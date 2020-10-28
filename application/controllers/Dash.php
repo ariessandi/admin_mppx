@@ -27,7 +27,7 @@ class Dash extends CI_Controller {
 	{
 		//$this->config->load('globals');
 		
-		$coremenu=$this->config->item('api_core');
+		$coremenu=$this->config->item('api_menu');
 
 		// $arrku=$this->globals->nama_saya();
 
@@ -39,7 +39,7 @@ class Dash extends CI_Controller {
 	   }
 
 		$this->load->helper('rest_helper');
-		$profile = get_http_request("http://localhost:8000/api/core-menu");
+		$profile = get_http_request($coremenu);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
@@ -48,10 +48,7 @@ class Dash extends CI_Controller {
 		$this->load->view('headermain');
 		$this->load->view('topbar');
 		$this->load->view('sidebar');
-		$this->load->view('tablemenu',$data);
-		// $this->load->view('mainHead');
-		// $this->load->view('nav');
-		// $this->load->view('indexMain');
+		$this->load->view('tabledash',$data);
 	}
 	
 

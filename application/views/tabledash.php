@@ -1,45 +1,24 @@
-<?php include "headermain.php"; ?>
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-<?php include "topbar.php";?>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+<?php //include "headermain.php"; ?>
+
+<?php //include "topbar.php";?>
+
        
-<?php include "sidebar.php"; ?>
-	   <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+<?php //include "sidebar.php"; ?>
+
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+
             <div class="row page-titles">
         <div class="col-md-5 col-12 align-self-center">
-            <h3 class="text-themecolor mb-0">Role</h3>
+            <h3 class="text-themecolor mb-0">Menu</h3>
             <ol class="breadcrumb mb-0 p-0 bg-transparent">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active">List Role</li>
             </ol>
         </div>
         
     </div>
-    <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+
              <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
+
         <div class="row">
             
             <div class="col-12">
@@ -47,48 +26,17 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             
-                        <h2 class="card-title">Role List</h2>
-                        <a   href="<?php echo base_url();?>CoreRole/formRole/"  class="btn btn-rounded btn-primary">
-                            <i class="ti-plus"></i>
-                            <span>Add Role</span>
-                        </a>
+                        <h2 class="card-title">WELCOME</h2>
+                      
                         </div>
                         <hr>
-                        <div class="table-responsive">
-                            <table id="zero_config" class="table table-bordered">
-                                <thead>
-                                     <tr>
-                                            <th>Name</th>
-                                            <th>Description</th>
-											<th>Active</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                   
-                                    
-                                    <?php     								
-                                        foreach($profile as $k=>$v){
-                                        ?>
-                                        <tr class="odd gradeX">
-                                            <td class="center"><?=$v['name'];?></td>
-                                            <td class="center"><?=$v['description'];?></td>
-											<td class="center"><?php if($v['active']==1){echo "Active";}else{ echo "Not Active";};?></td>
-                                            <td class="center"><a href="<?php echo base_url();?>CoreRole/editRole/<?=$v['id'];?>" class="btn btn-rounded btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span><i class="ti-pencil-alt"></i></span></a></td>
-                                            <td class="center"><a href="<?php echo base_url();?>CoreRole/deleteRole/<?=$v['id'];?>" class="btn btn-rounded btn-danger" id="sa-confirm" data-toggle="tooltip" data-placement="top" title="Delete"><span><i class="ti-trash"></i></span></a> </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+						<br><br><br><br><br><br><br><br><br><br><br>
+                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-		  </div>
+    
+       
+		 
                     <!-- Column -->
                 </div>
                 <!-- ============================================================== -->

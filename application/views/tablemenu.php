@@ -58,9 +58,9 @@
                             <table id="zero_config" class="table table-bordered">
                                 <thead>
                                      <tr>
-                                            <th>ID</th>
+                                           
                                             <th>Text</th>
-                                            <th>Path</th>
+                                           
                                             <th>Parent</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -72,9 +72,8 @@
 											
                                         ?>
                                         <tr class="odd gradeX">
-                                            <td class="center"><?=$v['id'];?></td>
+                                           
                                             <td class="center"><?=$v['text'];?></td>
-                                            <td class="center"><?=$v['path'];?></td>
                                             <td class="center"><?=$v['parent'];?></td>
                                             <td class="center"><a href="<?php echo base_url();?>CoreMenu/editMain/<?=$v['id'];?>" class="btn btn-rounded btn-info" data-toggle="tooltip" data-placement="top" title="Edit"><span><i class="ti-pencil-alt"></i></span></a></td>
                                             <td class="center"><a href="<?php echo base_url();?>CoreMenu/deleteMain/<?=$v['id'];?>" class="btn btn-rounded btn-danger" id="sa-confirm" data-toggle="tooltip" data-placement="top" title="Delete"><span><i class="ti-trash"></i></span></a></td>
