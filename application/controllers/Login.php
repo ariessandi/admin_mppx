@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 
 	/**
+	
+	d4353a76-f84e-4507-a23a-124959c3f96b
+	
 	 * Index Page for this controller.
 	 *
 	 * Maps to the following URL
@@ -63,6 +66,13 @@ class Login extends CI_Controller {
 
 		}
 		 // $this->load->view('formLogin');
+		// $this->load->view('logintes');
+		
+$this->load->view('headermain');
+			// $this->load->view('topbar');
+			// $this->load->view('sidebar');		
+		
+		
 		$this->load->view('logintes');
 	}
 

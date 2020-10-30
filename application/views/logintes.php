@@ -1,107 +1,114 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="csrf-token" content="9dusjrJPBB69Mo34Ena8T3ceSFwxr8EY2JkG3JCQ">
-        <title>Mall Pelayanan Publik | Kota Bukittinggi</title>
 
-        <link href="<?php echo base_url();?>/assets/mpp/css/bootstrap.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>/assets/mpp/css/style.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>/assets/mpp/css/responsive.css" rel="stylesheet" />
-
-        <link href="<?php echo base_url();?>/assets/mpp/css/plugin/daterangepicker.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>/assets/mpp/css/login-style.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>/assets/mpp/css/login-theme.css" rel="stylesheet" />
-
-        <link rel="shortcut icon" href="<?php echo base_url();?>/assets/mpp/images/favicon.png" type="image/x-icon" />
-        <link rel="icon" href="<?php echo base_url();?>/assets/mpp/images/favicon.png" type="image/x-icon" />
-
-        <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-        <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-    </head>
-
-    <body style="background-color:#0093FF;">
-        <div class="preloader"></div>
-        <div class="form-body">
-            <div class="website-logo">
-                <a href="index.html">
-                    <div class="logo">
-                        <img class="logo-size" src="<?php echo base_url();?>/assets/mpp/images/logo-light.svg" alt="" />
-                    </div>
-                </a>
+<body>
+    <div class="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
             </div>
+        </div>
+		
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(<?php echo base_url();?>/assets/mpro/material_files/login-register.jpg) no-repeat center center; background-size: cover;">
+    <div class="auth-box p-4 bg-white rounded">
+        <div id="loginform">
+            <div class="logo">
+                <h3 class="box-title mb-3">Sign In</h3>
+            </div>
+            <!-- Form -->
             <div class="row">
-                <div class="img-holder">
-                    <div class="bg"></div>
-                    <div class="info-holder">
-                        <img src="<?php echo base_url();?>/assets/mpp/images/graphic2.svg" alt="" />
-                    </div>
-                </div>
-                <div class="form-holder">
-                    <div class="form-content">
-                        <div class="form-items">
-                            <a href="http://localhost:8001">
-                                <h3>
-                                    Login MPP <br />
-                                    Kota Bukittinggi
-                                </h3>
-                            </a>
-                            <div class="page-links">
-                                <a href="http://localhost:8001/login" class="active">Login</a>
-                                <a href="http://localhost:8001/register">Register</a>
-                            </div>
-                            
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="messageError" style="display:none;">
-                                <ul id="listError">
-                                </ul>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            
-                            <form action="#" method="post" autocomplete="off">
-                                <input class="form-control" type="text" name="email" id="email" placeholder="E-mail Address" />
-                                <input class="form-control" type="password" name="password" id="password" placeholder="Password" />
-                                <div class="form-button">
-                                    <!--button id="btnSubmit" type="button" class="ibtn">Login</button--> 
-									
-									<input type=submit class="ibtn" name="btnlogin" value="LOGIN">
-									
-                                    <a href="http://localhost:8001/forgot">Forget password?</a>
-                                </div>
-                            </form>
+                <div class="col-12">
+				
+                    <form class="form-horizontal mt-3 form-material" id="loginform" action="#" method="post" autocomplete="off">
+                        <div class="form-group mb-3">
+                            <div class="">
+                                <input class="form-control" name="email" id="email" type="text" required="" placeholder="Username"> </div>
                         </div>
-                    </div>
+                        <div class="form-group mb-4">
+                            <div class="">
+                                <input class="form-control" name="password" id="password" type="password" required="" placeholder="Password"> </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="d-flex">
+                                <div class="checkbox checkbox-info pt-0 d-flex align-items-center">
+                                    <input id="checkbox-signup" type="checkbox" class="material-inputs chk-col-indigo">
+                                    <label for="checkbox-signup"> Remember me </label>
+                                </div> 
+                                <div class="ml-auto">
+                                    <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fa fa-lock mr-1"></i> Forgot pwd?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center mt-4">
+                            <div class="col-xs-12">
+							<input type="hidden"  name="btnlogin" value="LOGIN">
+                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
+                                <div class="social mb-3">
+                                    <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                                    <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 mt-4">
+                            <div class="col-sm-12 justify-content-center d-flex">
+                                <p>Don't have an account? <a href="authentication-register1.html" class="text-info font-weight-normal ml-1">Sign Up</a></p>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+        <div id="recoverform">
+            <div class="logo">
+                <h3 class="font-weight-medium mb-3">Recover Password</h3>
+                <span class="text-muted">Enter your Email and instructions will be sent to you!</span>
+            </div>
+            <div class="row mt-3 form-material">
+                <!-- Form -->
+                <form class="col-12" action="index.html">
+                    <!-- email -->
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input class="form-control" type="email" required="" placeholder="Username">
+                        </div>
+                    </div>
+                    <!-- pwd -->
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-block btn-lg btn-primary text-uppercase" type="submit" name="action">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo base_url();?>/assets/mpro/material_files/jquery.min.js.download"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/popper.min.js.download"></script>
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/bootstrap.min.js.download"></script>
+    <!-- apps -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/app.min.js.download"></script>
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/app.init.js.download"></script>
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/app-style-switcher.js.download"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/perfect-scrollbar.jquery.min.js.download"></script>
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/sparkline.js.download"></script>
+    <!--Wave Effects -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/waves.js.download"></script>
+    <!--Menu sidebar -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/sidebarmenu.js.download"></script>
+    <!--Custom JavaScript -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/custom.min.js.download"></script>
+    <!--This page plugins -->
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/jquery.dataTables.min.js.download"></script>
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/custom-datatable.js.download"></script>
+    <script src="<?php echo base_url();?>/assets/mpro/material_files/datatable-basic.init.js.download"></script>
 
-        <script src="<?php echo base_url();?>/assets/mpp/js/jquery.js"></script>
-
-        <script src="<?php echo base_url();?>/assets/mpp/js/popper.min.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/jquery.fancybox.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/appear.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/nav-tool.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/mixitup.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/owl.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/wow.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/jquery-ui.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/jquery.validate.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/script.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/color-settings.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-        <script src="<?php echo base_url();?>/assets/mpp/js/plugin/moment.min.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/plugin/daterangepicker.min.js"></script>
-
-        <script src="<?php echo base_url();?>/assets/mpp/js/custom.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/url.js"></script>
-        <script src="<?php echo base_url();?>/assets/mpp/js/login.js"></script>
-    </body>
-</html>
