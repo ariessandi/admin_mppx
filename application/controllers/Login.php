@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{	
-
+		$coreauth=$this->config->item('api_auth');
 		$btnlogin = $this->input->post('btnlogin');
 		if($btnlogin=="LOGIN"){
 			$email = $this->input->post('email');
@@ -36,10 +36,11 @@ class Login extends CI_Controller {
 			);
 
 			$profile=array();
-			$profile = post_http_request("http://localhost:8000/api/auth-coreuser/process",$data);
+			$profile = post_http_request($coreauth,$data);
 			$profile = json_decode($profile, TRUE);
 
-
+// echo '<pre>';
+// print_r($profile);die;
 			if(is_array($profile)==1){
 				echo "login bner";
 				//$list = get_http_request("http://localhost:8000/api/core-user/");
@@ -50,7 +51,8 @@ class Login extends CI_Controller {
 					'id'=>$profile['id'],	
 					'email'=>$profile['email'],
 					'name'=>$profile['name'],
-					'core_role_id'=>$profile['core_role_id']
+					'role_id'=>$profile['role'],
+					'menu'=>$profile['menu']
 				);
 				$this->session->set_userdata($arr);
 				

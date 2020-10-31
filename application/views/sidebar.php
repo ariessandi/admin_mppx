@@ -23,6 +23,18 @@
                 </div>
                 <!-- End User profile text-->
                 <!-- Sidebar navigation-->
+				
+				
+		<?php		
+		//echo '<pre>';
+		//print_r($this->session->userdata['menu']);die;			
+$menu=$this->session->userdata['menu'];		
+//print_r($menu);
+$jm=count($menu);
+//echo $jm;
+		?>
+				
+				
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                        
@@ -30,11 +42,21 @@
 					<li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="<?php echo base_url();?>Dash"><i class="mdi mdi-gauge"></i> Dashboard</a>
                     </li>
+					<?php
+					for($i=0;$i<$jm;$i++){
+						?>
+<li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="<?php echo base_url();?>Dash"><i class="mdi mdi-gauge"></i> <?=$menu[$i]['text'];?></a>
+                    </li>
+					<?php	
+					 } 
+					 ?>
+					<!--
                      <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url();?>CoreMenu"><i class="mdi mdi-clipboard-text"></i> Core Menu</a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url();?>RoleMenu"><i class="mdi mdi-clipboard-text"></i> Core Role</a>
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url();?>CoreRole"><i class="mdi mdi-clipboard-text"></i> Core Role</a>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url();?>User/listUser/<?=$this->session->userdata['id'];?>"><i class="mdi mdi-clipboard-text"></i> User</a>
@@ -52,7 +74,7 @@
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="authentication-login1.html" aria-expanded="false"><i
-                                    class="mdi mdi-directions"></i><span class="hide-menu">Log Out</span></a></li>
+                                    class="mdi mdi-directions"></i><span class="hide-menu">Log Out</span></a></li-->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
