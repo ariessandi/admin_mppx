@@ -29,6 +29,27 @@ class Instansi extends CI_Controller {
 		$this->load->helper('rest_helper');
 		$profile = get_http_request($api_instansi);
 		$data['profile'] = json_decode($profile, TRUE);
+
+		// $this->load->view('mainHead');
+		// $this->load->view('nav');
+		// $this->load->view('listInstansi',$data);
+		$this->load->view('headermain');
+		$this->load->view('topbar');
+		$this->load->view('sidebar');
+		$this->load->view('tableinstansi',$data);
+	}	
+
+	public function main($rolid)
+	{
+	   // if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
+	   // if($this->session->userdata['id']==""){ 
+	   //  redirect('/Login');
+	   // }
+		$api_instansi=$this->config->item('api_instansi');
+		$this->load->helper('rest_helper');
+		$profile = get_http_request($api_instansi,$rolid);
+		$data['profile'] = json_decode($profile, TRUE);
+
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
 		// $this->load->view('listInstansi',$data);
@@ -39,9 +60,7 @@ class Instansi extends CI_Controller {
 	}	
 
 
-
-
-	public function formInstansi()
+	public function formInstansi($rolid)
 	{
 		$api_instansi=$this->config->item('api_instansi');
 		$btnsubmit = $this->input->post('btnsubmit');

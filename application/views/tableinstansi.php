@@ -66,7 +66,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php                                        
+                                        <?php  
+									
                                         foreach($profile as $k=>$v){
                                         ?>
                                         <tr class="odd gradeX">

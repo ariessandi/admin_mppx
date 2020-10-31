@@ -17,17 +17,20 @@ class Banner extends CI_Controller {
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 d4353a76-f84e-4507-a23a-124959c3f96b
 	 */
 
 	public function index()
 	{
+		$rolid=$this->session->userdata['role_id'];
+		//echo $rolid;die;
 	   $api_banner=$this->config->item('api_banner');
 	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
 	   if($this->session->userdata['id']==""){ 
 	    redirect('/Login');
 	   }		
 		$this->load->helper('rest_helper');
-		$profile = get_http_request($api_banner);
+		$profile = get_http_request($api_banner,$rolid);
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');
 		// $this->load->view('nav');
@@ -38,6 +41,28 @@ class Banner extends CI_Controller {
 		$this->load->view('tablebanner',$data);
 	}	
 
+
+
+	public function main($rolid)
+	{
+		//$rolid=$this->session->userdata['role_id'];
+		//echo $rolid;die;
+	   $api_banner=$this->config->item('api_banner');
+	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
+	   if($this->session->userdata['id']==""){ 
+	    redirect('/Login');
+	   }		
+		$this->load->helper('rest_helper');
+		$profile = get_http_request($api_banner,$rolid);
+		$data['profile'] = json_decode($profile, TRUE);
+		// $this->load->view('mainHead');
+		// $this->load->view('nav');
+		// $this->load->view('listBanner',$data);
+		$this->load->view('headermain');
+		$this->load->view('topbar');
+		$this->load->view('sidebar');
+		$this->load->view('tablebanner',$data);
+	}	
 
 
 

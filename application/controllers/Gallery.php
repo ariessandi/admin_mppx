@@ -40,7 +40,26 @@ class Gallery extends CI_Controller {
 		$this->load->view('tablegallery',$data);
 	}	
 
+	public function main($rolid)
+	{
 
+	   if(!isset($this->session->userdata['id'])){$this->session->userdata['id']="";};
+	   if($this->session->userdata['id']==""){ 
+	    redirect('/Login');
+	   }
+		
+		$api_gallery=$this->config->item('api_gallery');
+		$this->load->helper('rest_helper');
+		$profile = get_http_request($api_gallery,$rolid);
+		$data['profile'] = json_decode($profile, TRUE);
+		// $this->load->view('mainHead');
+		// $this->load->view('nav');
+		// $this->load->view('listGallery',$data);
+		$this->load->view('headermain');
+		$this->load->view('topbar');
+		$this->load->view('sidebar');
+		$this->load->view('tablegallery',$data);
+	}	
 
 
 	public function formGallery()

@@ -21,12 +21,15 @@ class Dash extends CI_Controller {
 	 
 	public function __construct() {
 		parent::__construct();
+		// echo '<pre>';
+		// print_r($this->session);die;
 	}
 
 	public function index()
 	{
 		//$this->config->load('globals');
 		
+		$rolid=$this->session->userdata['role_id'];
 		$coremenu=$this->config->item('api_menu');
 
 		// $arrku=$this->globals->nama_saya();
@@ -39,7 +42,7 @@ class Dash extends CI_Controller {
 	   }
 
 		$this->load->helper('rest_helper');
-		$profile = get_http_request($coremenu);
+		$profile = get_http_request($coremenu,$rolid);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		// $this->load->view('mainHead');

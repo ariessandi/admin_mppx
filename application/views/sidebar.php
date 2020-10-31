@@ -26,10 +26,16 @@
 				
 				
 		<?php		
-		//echo '<pre>';
-		//print_r($this->session->userdata['menu']);die;			
-$menu=$this->session->userdata['menu'];		
-//print_r($menu);
+		// echo '<pre>';
+		// print_r($this->session->userdata);
+		
+		
+$menu=$this->session->userdata['menu'];	
+
+		// echo $menu[3]['text'];
+		// die;	
+// echo '<pre>';	
+// print_r($menu);die;
 $jm=count($menu);
 //echo $jm;
 		?>
@@ -41,18 +47,31 @@ $jm=count($menu);
                        
 					<li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="<?php echo base_url();?>Dash"><i class="mdi mdi-gauge"></i> Dashboard</a>
-                    </li>
+					</li>	
+						
+		
 					<?php
 					for($i=0;$i<$jm;$i++){
 						?>
-<li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="<?php echo base_url();?>Dash"><i class="mdi mdi-gauge"></i> <?=$menu[$i]['text'];?></a>
+						
+					<?php if($menu[$i]['childCount']>0){?>	
+					 <li class="sidebar-item">	
+					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="<?=$menu[$i]['icon'];?>"></i><span class="hide-menu"><?=$menu[$i]['text'];?></span></a>	
+					<ul aria-expanded="false" class="collapse first-level">
+					<?php for($j=0;$j< $menu[$i]['childCount'];$j++){?>
+                                <li class="sidebar-item"><a href="<?php echo base_url();?><?=$menu[$i]['childList'][$j]['path'];?>/<?=$menu[$i]['role_access_id'];?>" class="sidebar-link"><i class="mdi mdi-priority-low"></i><span class="hide-menu"> <?=$menu[$i]['childList'][$j]['text'];?></span></a></li>
+					<?php } ?>						
+						</ul>
+                    </li>	
+					<?php }else{?>	
+					<li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="<?php echo base_url();?><?=$menu[$i]['text'];?>/main/<?=$menu[$i]['role_access_id'];?>"><i class="<?=$menu[$i]['icon'];?>"></i> <?=$menu[$i]['text'];?></a>
                     </li>
 					<?php	
-					 } 
+					} }
 					 ?>
-					<!--
-                     <li class="sidebar-item">
+					
+                     <!--li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url();?>CoreMenu"><i class="mdi mdi-clipboard-text"></i> Core Menu</a>
                     </li>
                     <li class="sidebar-item">
