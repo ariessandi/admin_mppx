@@ -62,7 +62,7 @@ class Gallery extends CI_Controller {
 	}	
 
 
-	public function formGallery()
+	public function formGallery($rolid)
 	{
 		$api_gallery=$this->config->item('api_gallery');
 		$btnsubmit = $this->input->post('btnsubmit');
@@ -79,11 +79,11 @@ class Gallery extends CI_Controller {
 				    'publish'  =>  $publish
 
 				);
-				$profile = upload_http_request($url,$data,$logo);
+				$profile = upload_http_request($url,$data,$logo,$rolid);
 				$profile = json_decode($profile, TRUE);
 				// echo '<pre>';
 				// print_r($profile);die;
-				redirect('/Gallery');
+				redirect('/Gallery/main/'.$rolid);
 
 		}
 			// $this->load->view('mainHead');
@@ -96,7 +96,7 @@ class Gallery extends CI_Controller {
 	}	
 
 
-	public function editGallery($id)
+	public function editGallery($id,$rolid)
 	{
 		$api_gallery=$this->config->item('api_gallery');
 		$btnsubmit = $this->input->post('btnsubmit');
@@ -112,12 +112,12 @@ class Gallery extends CI_Controller {
 			    'publish'  =>  $publish
 
 			);
-			$profile = upload_http_request($api_gallery."/".$id,$data,$logo);
+			$profile = upload_http_request($api_gallery."/".$id,$data,$logo,$rolid);
 			$profile = json_decode($profile, TRUE);
-			redirect('/Gallery');
+			redirect('/Gallery/main/'.$rolid);
 		}else{
 			$this->load->helper('rest_helper');
-			$profile = get_http_request($api_gallery."/".$id);
+			$profile = get_http_request($api_gallery."/".$id,$rolid);
 			$data['profile'] = json_decode($profile, TRUE);
 			// $this->load->view('mainHead');
 			// $this->load->view('nav');
@@ -130,16 +130,16 @@ class Gallery extends CI_Controller {
 
 	}	
 
-    public function deleteGallery($id)
+    public function deleteGallery($id,$rolid)
 	{
 		$api_gallery=$this->config->item('api_gallery');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request($api_gallery."/".$id);
+		$profile = del_http_request($api_gallery."/".$id,$rolid);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');
 		$this->load->view('nav');
-		redirect('/Gallery');
+		redirect('/Gallery/main/'.$rolid);
 	}
 
 

@@ -46,15 +46,16 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            
+                            <?php  $rolid=$this->uri->segment(3);?>
                         <h2 class="card-title">Banner List</h2>
-                        <a   href="<?php echo base_url();?>Banner/formBanner/"  class="btn btn-rounded btn-primary">
+                        <a   href="<?php echo base_url();?>Banner/formBanner/<?=$rolid;?>"  class="btn btn-rounded btn-primary">
                             <i class="ti-plus"></i>
                             <span>Add Banner</span>
                         </a>
                         </div>
                         <hr>
                         <div class="table-responsive">
+						
                             <table id="zero_config" class="table table-bordered">
                                 <thead>
                                         <tr>
@@ -76,7 +77,7 @@
                                             <td class="center"><?=$v['link'];?></td>
                                             <td class="center"><?=$v['publish'];?></td>
                                             <td class="center">Edit</td>
-                                            <td class="center"><a href="<?php echo base_url();?>Banner/deleteBanner/<?=$v['id'];?>">Delete</a></td>
+                                            <td class="center"><a href="<?php echo base_url();?>Banner/deleteBanner/<?=$v['id'];?>/<?=$rolid;?>">Delete</a></td>
                                         </tr>
                                     <?php } ?>
                                         

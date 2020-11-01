@@ -47,28 +47,70 @@ $juma=count($profile);
 if($juma==0){
     $vname="";
     $vshortname="";
+	$vaddress="";
+	$vemail="";
+	$vtelp="";
+	$vfax="";
+	$vurl="";
+	$vweb="";
 
 
 }else{
     $vname=$profile['name'];
     $vshortname=$profile['shortname'];
+	$vaddress=$profile['address'];
+	$vemail=$profile['email'];
+	$vtelp=$profile['telp'];
+	$vfax=$profile['fax'];
+	$vurl=$profile['tracking_url'];
+	$vweb=$profile['website'];
 
 }
 
 
 ?>
-      <form role="form" method="POST" enctype="multipart/form-data">
+       <form role="form" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" value="<?=$vname;?>" name="name" class="form-control" />
                                         </div>
                                         <div class="form-group">
-                                            <label>shortname</label>
+                                            <label>Shortname</label>
                                             <input type="text" value="<?=$vshortname;?>"  name="shortname" class="form-control" />
                                         </div>
                                         <div class="form-group">
                                             <label>Logo</label>
                                             <input type="file" name="logo" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Address</label>
+                                            <input type="text" name="address" value="<?=$vaddress;?>"  class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" name="email" value="<?=$vemail;?>" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Telp</label>
+                                            <input type="text" name="telp"value="<?=$vtelp;?>"  class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Fax</label>
+                                            <input type="text" name="fax" value="<?=$vfax;?>" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Tracing Url</label>
+                                            <input type="text" name="trurl" value="<?=$vurl;?>" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Website</label>
+                                            <input type="text" name="website" value="<?=$vweb;?>" class="form-control" />
                                         </div>
                                         
 
@@ -76,7 +118,7 @@ if($juma==0){
                                         <input type="submit" class="btn btn-primary" name="btnsubmit" value="SAVE">
                                       
 
-                                    </form>                  
+                                    </form>
  <!-- ============================================================== -->
       <!-- ============================================================== -->
                 <!-- End PAge Content -->

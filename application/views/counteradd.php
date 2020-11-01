@@ -22,74 +22,86 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
         <div class="col-md-5 col-12 align-self-center">
-            <h3 class="text-themecolor mb-0">Gallery</h3>
+            <h3 class="text-themecolor mb-0">Counter</h3>
             <ol class="breadcrumb mb-0 p-0 bg-transparent">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active">List Gallery</li>
+                <li class="breadcrumb-item active">Form Counter</li>
             </ol>
         </div>
         
-    </div>
-    <!-- ============================================================== -->
+    </div>  <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-             <div class="container-fluid">
+            <div class="container-fluid">
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->
-        <div class="row">
-            
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                             <?php  $rolid=$this->uri->segment(3);?>
-                        <h2 class="card-title">Gallery List</h2>
-                        <a   href="<?php echo base_url();?>Gallery/formGallery/<?=$rolid;?>"  class="btn btn-rounded btn-primary">
-                            <i class="ti-plus"></i>
-                            <span>Add Gallery</span>
-                        </a>
-                        </div>
-                        <hr>
-                        <div class="table-responsive">
-                            <table id="zero_config" class="table table-bordered">
-                                  <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>File Name</th>
-                                            <th>Publish</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php                                        
-                                        foreach($profile as $k=>$v){
-                                        ?>
-                                        <tr class="odd gradeX">
-                                            <td class="center"><?=$v['title'];?></td>
-                                            <td class="center"><?=$v['filename'];?></td>
-                                            <td class="center"><?=$v['publish'];?></td>
-                                            <td class="center"><a href="<?php echo base_url();?>Gallery/editGallery/<?=$v['id'];?>/<?=$rolid;?>">Edit</a></td>
-                                            <td class="center"><a href="<?php echo base_url();?>Gallery/deleteGallery/<?=$v['id'];?>/<?=$rolid;?>">Delete</a></td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                    </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-		  </div>
-                    <!-- Column -->
-                </div>
-                <!-- ============================================================== -->
+<?php
+// print_r($profile);
+if(!isset($profile)){$profile=array();}
+$juma=count($profile);
+
+if($juma==0){
+    $vname="";
+    $vlocation="";
+	$vorder="";
+	$vactive="";
+
+
+}else{
+    $vname=$profile['name'];
+    $vlocation=$profile['location'];
+	$vorder=$profile['order'];
+	$vactive=$profile['active'];
+
+}
+
+
+?>
+       <form role="form" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" value="<?=$vname;?>" name="name" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text" value="<?=$vlocation;?>"  name="location" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Active</label>
+											<?php if($vactive==1){$ceka="";$cek="checked";}else{$ceka="checked";$cek="";} ?>
+											<div class="radio">
+                                                <label>
+                                                    <input type="radio" name="active" id="optionsRadios3" value="0"   <?=$cek;?>  />Active
+                                                </label>
+                                            </div>
+                                           <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="active" id="optionsRadios3" value="0"   <?=$ceka;?>  />No
+                                                </label>
+                                            </div>
+											
+											
+											
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Order</label>
+                                            <input type="text" name="order" value="<?=$vorder;?>"  class="form-control" />
+                                        </div>
+										
+										
+
+
+                                        <input type="submit" class="btn btn-primary" name="btnsubmit" value="SAVE">
+                                      
+
+                                    </form>
+ <!-- ============================================================== -->
+      <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->

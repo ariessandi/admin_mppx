@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 			);
 
 			$profile=array();
-			$profile = post_http_request($coreauth,$data);
+			$profile = post_http_request_login($coreauth,$data);
 			$profile = json_decode($profile, TRUE);
 
 // echo '<pre>';
@@ -57,7 +57,7 @@ class Login extends CI_Controller {
 				$this->session->set_userdata($arr);
 				
 
-				redirect('/Dash');
+				redirect('/Dash/');
 			}else{
 				echo "login salah";
 				redirect('/Login');

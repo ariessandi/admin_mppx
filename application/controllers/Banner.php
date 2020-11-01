@@ -66,7 +66,7 @@ class Banner extends CI_Controller {
 
 
 
-	public function formBanner()
+	public function formBanner($rolid)
 	{
 		$api_banner=$this->config->item('api_banner');
 		$btnsubmit = $this->input->post('btnsubmit');
@@ -85,11 +85,11 @@ class Banner extends CI_Controller {
 				    'link'  =>  $link
 
 				);
-				$profile = upload_http_request($url,$data,$logo);
+				$profile = upload_http_request($url,$data,$logo,$rolid);
 				$profile = json_decode($profile, TRUE);
 				// echo '<pre>';
 				// print_r($profile);die;
-				redirect('/Banner');
+				redirect('/Banner/main/'.$rolid);
 
 		}
 			// $this->load->view('mainHead');
@@ -101,16 +101,16 @@ class Banner extends CI_Controller {
 		$this->load->view('banneradd');
 	}
 
-	public function deleteBanner($id)
+	public function deleteBanner($id,$rolid)
 	{
 		$api_banner=$this->config->item('api_banner');
 		$this->load->helper('rest_helper');
-		$profile = del_http_request($api_banner."/".$id);
+		$profile = del_http_request($api_banner."/".$id,$rolid);
 		// ubah string JSON menjadi array
 		$data['profile'] = json_decode($profile, TRUE);
 		$this->load->view('mainHead');
 		$this->load->view('nav');
-		redirect('/Banner');
+		redirect('/Banner/main/'.$rolid);
 	}	
 
 

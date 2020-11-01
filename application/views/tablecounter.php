@@ -22,10 +22,10 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
         <div class="col-md-5 col-12 align-self-center">
-            <h3 class="text-themecolor mb-0">Gallery</h3>
+            <h3 class="text-themecolor mb-0">Counter</h3>
             <ol class="breadcrumb mb-0 p-0 bg-transparent">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active">List Gallery</li>
+                <li class="breadcrumb-item active">List Counter</li>
             </ol>
         </div>
         
@@ -46,35 +46,38 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                             <?php  $rolid=$this->uri->segment(3);?>
-                        <h2 class="card-title">Gallery List</h2>
-                        <a   href="<?php echo base_url();?>Gallery/formGallery/<?=$rolid;?>"  class="btn btn-rounded btn-primary">
+                            <?php  $rolid=$this->uri->segment(3);?>
+                        <h2 class="card-title">Counter List</h2>
+                        <a   href="<?php echo base_url();?>Counter/formCounter/<?=$rolid;?>"  class="btn btn-rounded btn-primary">
                             <i class="ti-plus"></i>
-                            <span>Add Gallery</span>
+                            <span>Add Counter</span>
                         </a>
                         </div>
                         <hr>
                         <div class="table-responsive">
+						
                             <table id="zero_config" class="table table-bordered">
-                                  <thead>
+                                <thead>
                                         <tr>
-                                            <th>Title</th>
-                                            <th>File Name</th>
-                                            <th>Publish</th>
+                                            <th>Name</th>
+                                            <th>Location</th>
+											<th>Order</th>
+             
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php                                        
+                                        <?php  
+									
                                         foreach($profile as $k=>$v){
                                         ?>
                                         <tr class="odd gradeX">
-                                            <td class="center"><?=$v['title'];?></td>
-                                            <td class="center"><?=$v['filename'];?></td>
-                                            <td class="center"><?=$v['publish'];?></td>
-                                            <td class="center"><a href="<?php echo base_url();?>Gallery/editGallery/<?=$v['id'];?>/<?=$rolid;?>">Edit</a></td>
-                                            <td class="center"><a href="<?php echo base_url();?>Gallery/deleteGallery/<?=$v['id'];?>/<?=$rolid;?>">Delete</a></td>
+                                            <td class="center"><?=$v['name'];?></td>
+                                            <td class="center"><?=$v['location'];?></td>
+											<td class="center"><?=$v['order'];?></td>
+                                            <td class="center"><a href="<?php echo base_url();?>Counter/editCounter/<?=$v['id'];?>/<?=$rolid;?>">Edit</a></td>
+                                            <td class="center"><a href="<?php echo base_url();?>Counter/deleteCounter/<?=$v['id'];?>/<?=$rolid;?>">Delete</a></td>
                                         </tr>
                                     <?php } ?>
                                         

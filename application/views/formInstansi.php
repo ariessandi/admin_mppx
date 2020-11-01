@@ -32,24 +32,54 @@ if($juma==0){
                     <!-- Form Elements -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Form Element Examples
+                            Form Instansi
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Basic Form Examples</h3>
+                                    <h3>Add Instansi</h3>
                                     <form role="form" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" value="<?=$vname;?>" name="name" class="form-control" />
                                         </div>
                                         <div class="form-group">
-                                            <label>shortname</label>
+                                            <label>Shortname</label>
                                             <input type="text" value="<?=$vshortname;?>"  name="shortname" class="form-control" />
                                         </div>
                                         <div class="form-group">
                                             <label>Logo</label>
                                             <input type="file" name="logo" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Address</label>
+                                            <input type="text" name="address" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" name="email" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Telp</label>
+                                            <input type="text" name="telp" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Fax</label>
+                                            <input type="text" name="fax" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Tracing Url</label>
+                                            <input type="text" name="trurl" class="form-control" />
+                                        </div>
+										
+										<div class="form-group">
+                                            <label>Website</label>
+                                            <input type="text" name="website" class="form-control" />
                                         </div>
                                         
 

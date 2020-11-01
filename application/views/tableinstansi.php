@@ -46,15 +46,16 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            
+                            <?php  $rolid=$this->uri->segment(3);?>
                         <h2 class="card-title">Instansi List</h2>
-                        <a   href="<?php echo base_url();?>Instansi/formInstansi"  class="btn btn-rounded btn-primary">
+                        <a   href="<?php echo base_url();?>Instansi/formInstansi/<?=$rolid;?>"  class="btn btn-rounded btn-primary">
                             <i class="ti-plus"></i>
                             <span>Add Instansi</span>
                         </a>
                         </div>
                         <hr>
                         <div class="table-responsive">
+						
                             <table id="zero_config" class="table table-bordered">
                                 <thead>
                                         <tr>
@@ -73,8 +74,8 @@
                                         <tr class="odd gradeX">
                                             <td class="center"><?=$v['name'];?></td>
                                             <td class="center"><?=$v['shortname'];?></td>
-                                            <td class="center"><a href="<?php echo base_url();?>Instansi/editInstansi/<?=$v['id'];?>">Edit</a></td>
-                                            <td class="center"><a href="<?php echo base_url();?>Instansi/deleteInstansi/<?=$v['id'];?>">Delete</a></td>
+                                            <td class="center"><a href="<?php echo base_url();?>Instansi/editInstansi/<?=$v['id'];?>/<?=$rolid;?>">Edit</a></td>
+                                            <td class="center"><a href="<?php echo base_url();?>Instansi/deleteInstansi/<?=$v['id'];?>/<?=$rolid;?>">Delete</a></td>
                                         </tr>
                                     <?php } ?>
                                         

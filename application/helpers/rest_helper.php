@@ -7,20 +7,26 @@ if ( ! function_exists('test_method'))
         return $var;
     }   
 
-    function post_http_request($url,$data){
+
+    function post_http_request_login($url,$data){
 	    $login='mppBukitTinggi';
 	    $password='tomorrowNeverDies!';
    
+   
+   
 	    $ch = curl_init(); 
 	    $datax=json_encode($data);
+		
+
+		
 	    //curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: multipart/form-data'));
 	    curl_setopt($ch, CURLOPT_POST, 1);
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, $datax);
-	    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-	      'Content-Type: application/json'
-	    ]);
+	     curl_setopt($ch, CURLOPT_HTTPHEADER, [
+	         'Content-Type: application/json'
+	     ]);	
 
-
+//curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded","key: ".$key,"sig: ".$signature));
 	    // set url 
 	    curl_setopt($ch, CURLOPT_URL, $url);
 	    
@@ -47,7 +53,54 @@ if ( ! function_exists('test_method'))
 	}
 
 
-    function upload_http_request($url,$data,$locfile){
+
+    function post_http_request($url,$data,$signature){
+	    $login='mppBukitTinggi';
+	    $password='tomorrowNeverDies!';
+   
+   
+   
+	    $ch = curl_init(); 
+	    $datax=json_encode($data);
+		
+
+		
+	    //curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: multipart/form-data'));
+	    curl_setopt($ch, CURLOPT_POST, 1);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $datax);
+	     curl_setopt($ch, CURLOPT_HTTPHEADER, [
+             'signature: '.$signature,
+	         'Content-Type: application/json'
+	     ]);	
+
+//curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded","key: ".$key,"sig: ".$signature));
+	    // set url 
+	    curl_setopt($ch, CURLOPT_URL, $url);
+	    
+	    // set user agent 
+	    /*   
+	    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+	    */
+	    
+	    // return the transfer as a string 
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+
+	    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+	    curl_setopt($ch, CURLOPT_USERPWD, "$login:$password");
+
+	    // $output contains the output string 
+	    $output = curl_exec($ch); 
+
+	    // tutup curl 
+	    curl_close($ch);      
+	    // mengembalikan hasil curl
+		
+
+	    return $output;
+	}
+
+
+    function upload_http_request($url,$data,$locfile,$signature){
 	    $login='mppBukitTinggi';
 	    $password='tomorrowNeverDies!';
 
@@ -75,6 +128,8 @@ if ($filedata != '')
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: multipart/form-data'));
+		curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'signature: '.$signature ]);
+		
 		curl_setopt($curl, CURLOPT_POST, 1);
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		curl_setopt($curl, CURLOPT_USERPWD, "$login:$password");
@@ -104,7 +159,7 @@ if ($filedata != '')
 	}
 
 
-	function get_http_request($url){
+	function get_http_request($url,$signature){
 	    $login='mppBukitTinggi';
 	    $password='tomorrowNeverDies!';
 	    // persiapkan curl
@@ -113,7 +168,16 @@ if ($filedata != '')
 	    $ch = curl_init(); 
 	    // set url 
 	    curl_setopt($ch, CURLOPT_URL, $url);
-	    
+	    //$signature=$this->session->userdata['role_id'];
+	//$signature='d4353a76-f84e-4507-a23a-124959c3f96b';
+	
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+             'signature: '.$signature,
+	         'Content-Type: application/json'
+		  // 'signature : d4353a76-f84e-4507-a23a-124959c3f96b'
+	     ]);		
+		
+		
 	    // set user agent 
 	    /*   
 	    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
@@ -129,14 +193,15 @@ if ($filedata != '')
 
 	    // tutup curl 
 	    curl_close($ch);      
-
+// echo '<pre>';
+// print_r($output);die;
 	    // mengembalikan hasil curl
 	    return $output;
 	}
 
 
 
-	function del_http_request($url){
+	function del_http_request($url,$signature){
 	    $login='mppBukitTinggi';
 	    $password='tomorrowNeverDies!';
 	    // persiapkan curl
@@ -144,6 +209,13 @@ if ($filedata != '')
 	    // set url 
 	    curl_setopt($ch, CURLOPT_URL, $url);
 	    
+		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, [
+             'signature: '.$signature,
+	         'Content-Type: application/json'
+	     ]);		
+		
+		
 	    // set user agent 
 	    /*   
 	    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
